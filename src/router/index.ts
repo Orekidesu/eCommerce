@@ -3,6 +3,8 @@ import Dashboard from "@/views/dashboardView.vue";
 import Products from "@/views/productsView.vue";
 import Faq from "@/views/faqView.vue";
 import Contact from "@/views/contactUsView.vue";
+import Cart from "@/views/cartView.vue";
+import ProductDetails from "@/views/productDetailsView.vue";
 // import { onAuthStateChanged } from "firebase/auth";
 // import { auth } from "../firebase/init.js";
 
@@ -27,6 +29,16 @@ const routes: RouteRecordRaw[] = [
     path: "/faqs",
     name: "faq",
     component: Faq,
+  },
+  {
+    path: "/cart",
+    name: "cart",
+    component: Cart,
+  },
+  {
+    path: "/productDetails",
+    name: "productDetails",
+    component: ProductDetails,
   },
 ];
 const router = createRouter({

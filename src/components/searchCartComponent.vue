@@ -22,7 +22,7 @@
     </div>
 
     <div class="md:px-2 px-1 flex align-middle justify-center">
-      <button class="focus:outline-none hover:bg-accent hover:text-accent-foreground">
+      <button class="focus:outline-none hover:bg-accent hover:text-accent-foreground" @click="goToCart">
         <span class="material-symbols-outlined">
           shopping_cart
         </span>
@@ -33,6 +33,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const showSearch = ref(false);
+const router = useRouter();
+
+const goToCart = () => {
+  router.push('/cart');
+};
 </script>
