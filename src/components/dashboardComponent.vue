@@ -30,14 +30,17 @@
 
       <!-- Add two buttons: add to card and buy now -->
       <div class="flex flex-col gap-3 pr-4">
-        <button
-          class="border border-primary bg-secondary text-secondary-foreground py-2 rounded-lg hover:bg-primary hover:text-primary-foreground">Add
-          to
-          Cart</button>
-        <button
-          class="border border-primary bg-secondary text-secondary-foreground py-2 rounded-lg hover:bg-primary hover:text-primary-foreground">Buy
-          it
-          Now</button>
+        <router-link to="/cart" class="hover:underline">
+          <button
+            class=" w-full border border-primary bg-secondary text-secondary-foreground py-2 rounded-lg hover:bg-primary hover:text-primary-foreground">Add
+            to Cart</button>
+        </router-link>
+        <router-link to="/buyProduct" class="hover:underline">
+          <button
+            class=" w-full der-primary bg-secondary text-secondary-foreground py-2 rounded-lg hover:bg-primary hover:text-primary-foreground">Buy
+            it
+            Now</button>
+        </router-link>
       </div>
       <router-link to="/productDetails" class="hover:underline text-xs ">
         View full details
@@ -49,7 +52,7 @@
     <h1 class="xl:text-4xl md:text-3xl text-2xl">Featured Products</h1>
     <div class="grid md:grid-cols-4 grid-cols-2 gap-4 justify-items-center">
       <!-- make a list of images -->
-      <router-link to="/path-for-image-1" class="hover:underline">
+      <router-link to="/productDetails" class="hover:underline">
         <div class="overflow-hidden">
           <img class="transform transition duration-500 hover:scale-110" src="../assets/cleanCollarNavy.png"
             alt="cleanCollarNavy">
@@ -59,7 +62,7 @@
           <p>₱2,526.99 PHP</p>
         </div>
       </router-link>
-      <router-link to="/path-for-image-2" class="hover:underline">
+      <router-link to="/productDetails" class="hover:underline">
         <div class=" overflow-hidden">
           <img class="transform transition duration-500 hover:scale-110" src="../assets/cleanCollarNavy.png"
             alt="cleanCollarNavy">
@@ -69,7 +72,7 @@
           <p>₱2,526.99 PHP$200</p>
         </div>
       </router-link>
-      <router-link to="/path-for-image-3" class="hover:underline">
+      <router-link to="/productDetails" class="hover:underline">
         <div class=" overflow-hidden">
           <img class="transform transition duration-500 hover:scale-110" src="../assets/cleanCollarNavy.png"
             alt="cleanCollarNavy">
@@ -79,7 +82,7 @@
           <p>₱2,526.99 PHP</p>
         </div>
       </router-link>
-      <router-link to="/path-for-image-4" class="hover:underline">
+      <router-link to="/productDetails" class="hover:underline">
         <div class=" overflow-hidden">
           <img class="transform transition duration-500 hover:scale-110" src="../assets/cleanCollarNavy.png"
             alt="Product 4">
