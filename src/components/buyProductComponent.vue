@@ -241,7 +241,7 @@
               <div class="flex justify-start w-full">
                 <button
                   class=" w-full border border-primary bg-secondary text-secondary-foreground py-2 rounded-sm hover:bg-primary hover:text-primary-foreground">
-                  Complete Order</button>
+                  Complete Order madapaker</button>
               </div>
             </div>
             <!-- END CHECKOUT -->
