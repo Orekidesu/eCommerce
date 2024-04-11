@@ -7,6 +7,8 @@ import autoprefixer from "autoprefixer";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // Addd
+  base: "/eCommerce/",
   css: {
     postcss: {
       plugins: [tailwind(), autoprefixer()],
