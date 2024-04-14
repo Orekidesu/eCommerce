@@ -5,5 +5,5 @@
 </template>
 
 <script setup lang="ts">
-import NavigationComponent from '@/components/navigationComponent.vue';
+import NavigationComponent from '../../components/navigation/navigationComponent.vue';
 </script>

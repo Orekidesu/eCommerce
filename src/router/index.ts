@@ -8,10 +8,22 @@ import ProductDetails from "@/views/productDetailsView.vue";
 import BuyProduct from "@/views/buyProductView.vue";
 // import { onAuthStateChanged } from "firebase/auth";
 // import { auth } from "../firebase/init.js";
+import Login from "../views/authentication/loginView.vue";
+import Signup from "../views/authentication/signupView.vue";
 
 const routes: RouteRecordRaw[] = [
   {
-    path: "/",
+    path: "",
+    name: "login",
+    component: Login,
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: Signup,
+  },
+  {
+    path: "/dashboard",
     name: "dashboard",
     component: Dashboard,
   },

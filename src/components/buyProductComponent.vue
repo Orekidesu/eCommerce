@@ -310,8 +310,8 @@ import {
 import { HelpCircle } from 'lucide-vue-next';
 import { Car } from 'lucide-vue-next';
 import { HandCoins } from 'lucide-vue-next';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
 import { ref } from 'vue';
 let selectedValue = ref('comfortable');
 

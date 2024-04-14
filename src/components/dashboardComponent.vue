@@ -3,7 +3,14 @@
   <!-- Make 2 columns left side is an image, right side is product description -->
   <div class="flex flex-col md:flex-row justify-center max-w-screen px-4 ">
     <div class="w-full md:w-1/2 flex justify-center">
-      <img :src="selectedColorImage" alt="Product Image" class="h-4/5 border border-8">
+      <div v-if="isLoading" class="flex items-center justify-center h-full w-4/5 bg-accent rounded   animate-pulse  ">
+        <svg class="w-10 h-10 text-accent-foreground " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor" viewBox="0 0 20 18">
+          <path
+            d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+        </svg>
+      </div>
+      <img v-else :src="selectedColorImage" alt="Product Image" class="h-4/5 border">
     </div>
     <div class="w-full md:w-1/2 flex justify-start flex-col gap-2  md:px-0">
       <h1 class="xl:text-5xl md:text-4xl text-3xl">CleanCollar Men's Shirt</h1>
@@ -48,7 +55,7 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-1 gap-4 px-0 md:px-4">
+  <div class="grid grid-cols-1 gap-4 px-2 md:px-4">
     <h1 class="xl:text-4xl md:text-3xl text-2xl">Featured Products</h1>
     <div class="grid md:grid-cols-4 grid-cols-2 gap-4 justify-items-center">
       <!-- make a list of images -->
@@ -96,28 +103,38 @@
   </div>
 
 </template>
+
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import cleanCollarNavy from '../assets/cleanCollarNavy.png';
-import cleanCollarWhite from '../assets/cleanCollarWhite.png';
-import cleanCollarGray from '../assets/cleanCollarGray.png';
-import cleanCollarDarkGray from '../assets/cleanCollarDarkGray.png';
+import { ref, onMounted, watch } from 'vue';
+import { getDownloadURL, ref as storageRef } from 'firebase/storage';
+import { storage } from '../data/repository/firebaseConfig.ts';
 
 const selectedColor = ref('Navy');
-const selectedColorImage = computed(() => {
-  switch (selectedColor.value) {
-    case 'Navy':
-      return cleanCollarNavy;
+const selectedColorImage = ref('');
+const isLoading = ref(true);
+const images = ref<Record<string, string>>({}); // Specify the type of the object
 
-    case 'White':
-      return cleanCollarWhite;
-
-    case 'Gray':
-      return cleanCollarGray;
-    case 'Dark Gray':
-      return cleanCollarDarkGray;
-    default:
-      return cleanCollarNavy;
+onMounted(async () => {
+  if (!images.value[selectedColor.value]) {
+    const imageRef = storageRef(storage, `products/mens/cleanCollar/${selectedColor.value}.png`);
+    const imageUrl = await getDownloadURL(imageRef);
+    images.value[selectedColor.value] = imageUrl; // Directly update local state
   }
+
+  selectedColorImage.value = images.value[selectedColor.value];
+  isLoading.value = false;
+});
+
+watch(selectedColor, async (newColor: string) => { // Specify the type of newColor
+  isLoading.value = true;
+
+  if (!images.value[newColor]) {
+    const imageRef = storageRef(storage, `products/mens/cleanCollar/${newColor}.png`);
+    const imageUrl = await getDownloadURL(imageRef);
+    images.value[newColor] = imageUrl; // Directly update local state
+  }
+
+  selectedColorImage.value = images.value[newColor];
+  isLoading.value = false;
 });
 </script>
