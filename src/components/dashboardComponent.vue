@@ -124,5 +124,6 @@ const {
 onMounted(async () => {
   await fetchProductData();
   await fetchImage(selectedColor.value);
+  console.log(productId);
 });
 </script>

@@ -260,6 +260,8 @@
               <div class="flex flex-col justify-start">
                 <div class="text-base">CleanCollar Men's Shirt</div>
                 <div class="text-xs">Navy / XS </div>
+                <div class="text-xs"><strong>x1 </strong></div>
+
               </div>
             </div>
             <div>₱1,500 PHP</div>

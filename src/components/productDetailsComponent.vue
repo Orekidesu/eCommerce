@@ -12,9 +12,9 @@
         </div>
       </div>
       <div class="flex flex-col gap-3">
-        <div class="xl:text-5xl md:text-4xl text-3xl">CleanCollar Men's Shirt</div>
+        <div class="xl:text-5xl md:text-4xl text-3xl">{{ productName }}</div>
         <div>
-          <p>₱2,526.99 PHP</p>
+          <p>{{ productPrice }} PHP</p>
         </div>
         <p><strong>Color</strong></p>
         <select v-model="selectedColor" name="" id="" class="bg-transparent border border-primary sm:text-sm rounded-lg w-40 block p-2.5 focus:ring
@@ -22,9 +22,14 @@
           <option v-for="color in colors" :value="color">{{ color }}</option>
         </select>
         <p><strong>Size</strong></p>
-        <select v-model="selectedColor" name="" id="" class="bg-transparent border border-primary sm:text-sm rounded-lg w-40 block p-2.5 focus:ring
-        focus:border-accent">
-          <option v-for="color in colors" :value="color">{{ color }}</option>
+        <select
+          class="bg-transparent border border-primary sm:text-sm rounded-lg w-40 block p-2.5 focus:ring focus:border-accent">
+          <option value="option1">XS</option>
+          <option value="option2">S</option>
+          <option value="option3">M</option>
+          <option value="option1">L</option>
+          <option value="option2">XL</option>
+          <option value="option3">XXL</option>
         </select>
         <p><strong>Quantity</strong></p>
         <input class="rounded-lg w-40" type="number" name="" id="" value="1">
@@ -76,15 +81,36 @@
 
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import { getDownloadURL, ref as storageRef } from 'firebase/storage';
+import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 import { storage } from '../data/repository/firebaseConfig.ts';
 
-const colors = ['Navy', 'Gray', 'Dark Gray', 'White'];
+const route = useRoute();
+const productId = route.params.id; // Get the product ID from the route parameters
+
+let colors = ['Navy', 'Gray', 'Dark Gray', 'White'];
 const selectedColor = ref(colors[0]);
 const images = ref<Record<string, string>>({}); // Specify the type of the object
 const mainImage = ref('');
+const productName = ref('');
+const productPrice = ref('');
 
 onMounted(async () => {
+  const db = getFirestore();
+  const productsRef = collection(db, 'products');
+  const q = query(productsRef, where('id', '==', productId));
+  const querySnapshot = await getDocs(q);
+
+  if (!querySnapshot.empty) {
+    const docSnap = querySnapshot.docs[0];
+    productName.value = docSnap.data().name;
+    productPrice.value = docSnap.data().price;
+    colors = docSnap.data().color; // Fetch the colors from the document data
+  } else {
+    console.log('No such document!');
+  }
+
   const storedImages = sessionStorage.getItem('images');
   if (storedImages) {
     images.value = JSON.parse(storedImages);
@@ -98,7 +124,6 @@ onMounted(async () => {
   }
   mainImage.value = images.value[selectedColor.value];
 });
-
 watch(selectedColor, (newColor) => {
   mainImage.value = images.value[newColor];
   console.log(mainImage.value); // Print the image URL to the console
