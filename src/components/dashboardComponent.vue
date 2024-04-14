@@ -13,8 +13,8 @@
       <img v-else :src="selectedColorImage" alt="Product Image" class="h-4/5 border">
     </div>
     <div class="w-full md:w-1/2 flex justify-start flex-col gap-2  md:px-0">
-      <h1 class="xl:text-5xl md:text-4xl text-3xl">CleanCollar Men's Shirt</h1>
-      <p>1,500php</p>
+      <h1 class="xl:text-5xl md:text-4xl text-3xl">{{ productName }}</h1>
+      <p>₱{{ productPrice }} php</p>
       <p><strong>Color</strong></p>
       <!-- make a dropdown menu -->
       <select v-model="selectedColor"
@@ -51,7 +51,7 @@
             Now</button>
         </router-link>
       </div>
-      <router-link to="/productDetails" class="hover:underline text-xs ">
+      <router-link :to="`/productDetails/${productId}`" class="hover:underline">
         View full details
       </router-link>
     </div>
@@ -78,7 +78,7 @@
         </div>
         <div class="text-start">
           <p>Product 2</p>
-          <p>₱2,526.99 PHP$200</p>
+          <p>₱2,526.99 PHP</p>
         </div>
       </router-link>
       <router-link to="/productDetails" class="hover:underline">
@@ -107,49 +107,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue';
-import { getDownloadURL, ref as storageRef } from 'firebase/storage';
-import { storage } from '../data/repository/firebaseConfig.ts';
+import { onMounted } from 'vue';
+import { useProductController } from '../controllers/productController.ts';
 
-const selectedColor = ref('Navy');
-const selectedColorImage = ref('');
-const isLoading = ref(true);
-let images = ref<Record<string, string>>({}); // Specify the type of the object
+const {
+  selectedColor,
+  selectedColorImage,
+  isLoading,
+  productName,
+  productPrice,
+  productId,
+  fetchProductData,
+  fetchImage
+} = useProductController();
 
 onMounted(async () => {
-  // Try to load images from sessionStorage
-  const storedImages = sessionStorage.getItem('images');
-  if (storedImages) {
-    images.value = JSON.parse(storedImages);
-  }
-
-  if (!images.value[selectedColor.value]) {
-    const imageRef = storageRef(storage, `products/mens/clean_collar/${selectedColor.value}.png`);
-    const imageUrl = await getDownloadURL(imageRef);
-    images.value[selectedColor.value] = imageUrl; // Directly update local state
-
-    // Store images in sessionStorage
-    sessionStorage.setItem('images', JSON.stringify(images.value));
-  }
-
-  selectedColorImage.value = images.value[selectedColor.value];
-  isLoading.value = false;
-});
-
-watch(selectedColor, async (newColor: string) => { // Specify the type of newColor
-  isLoading.value = true;
-
-  if (!images.value[newColor]) {
-    const imageRef = storageRef(storage, `products/mens/clean_collar/${newColor}.png`);
-    const imageUrl = await getDownloadURL(imageRef);
-    images.value[newColor] = imageUrl; // Directly update local state
-
-    // Store images in sessionStorage
-    sessionStorage.setItem('images', JSON.stringify(images.value));
-  }
-
-  selectedColorImage.value = images.value[newColor];
-  isLoading.value = false;
-
+  await fetchProductData();
+  await fetchImage(selectedColor.value);
 });
 </script>
