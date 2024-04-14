@@ -122,7 +122,7 @@ onMounted(async () => {
   }
 
   if (!images.value[selectedColor.value]) {
-    const imageRef = storageRef(storage, `products/mens/cleanCollar/${selectedColor.value}.png`);
+    const imageRef = storageRef(storage, `products/mens/clean_collar/${selectedColor.value}.png`);
     const imageUrl = await getDownloadURL(imageRef);
     images.value[selectedColor.value] = imageUrl; // Directly update local state
 
@@ -138,7 +138,7 @@ watch(selectedColor, async (newColor: string) => { // Specify the type of newCol
   isLoading.value = true;
 
   if (!images.value[newColor]) {
-    const imageRef = storageRef(storage, `products/mens/cleanCollar/${newColor}.png`);
+    const imageRef = storageRef(storage, `products/mens/clean_collar/${newColor}.png`);
     const imageUrl = await getDownloadURL(imageRef);
     images.value[newColor] = imageUrl; // Directly update local state
 
