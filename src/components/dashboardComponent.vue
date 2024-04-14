@@ -112,13 +112,22 @@ import { storage } from '../data/repository/firebaseConfig.ts';
 const selectedColor = ref('Navy');
 const selectedColorImage = ref('');
 const isLoading = ref(true);
-const images = ref<Record<string, string>>({}); // Specify the type of the object
+let images = ref<Record<string, string>>({}); // Specify the type of the object
 
 onMounted(async () => {
+  // Try to load images from sessionStorage
+  const storedImages = sessionStorage.getItem('images');
+  if (storedImages) {
+    images.value = JSON.parse(storedImages);
+  }
+
   if (!images.value[selectedColor.value]) {
     const imageRef = storageRef(storage, `products/mens/cleanCollar/${selectedColor.value}.png`);
     const imageUrl = await getDownloadURL(imageRef);
     images.value[selectedColor.value] = imageUrl; // Directly update local state
+
+    // Store images in sessionStorage
+    sessionStorage.setItem('images', JSON.stringify(images.value));
   }
 
   selectedColorImage.value = images.value[selectedColor.value];
@@ -132,6 +141,9 @@ watch(selectedColor, async (newColor: string) => { // Specify the type of newCol
     const imageRef = storageRef(storage, `products/mens/cleanCollar/${newColor}.png`);
     const imageUrl = await getDownloadURL(imageRef);
     images.value[newColor] = imageUrl; // Directly update local state
+
+    // Store images in sessionStorage
+    sessionStorage.setItem('images', JSON.stringify(images.value));
   }
 
   selectedColorImage.value = images.value[newColor];
