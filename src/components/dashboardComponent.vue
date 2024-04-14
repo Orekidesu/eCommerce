@@ -20,9 +20,9 @@
       <select v-model="selectedColor"
         class="bg-transparent border border-primary sm:text-sm rounded-lg w-40 block p-2.5 focus:ring focus:border-accent">
         <option value="Navy">Navy</option>
-        <option value="White">White</option>
         <option value="Gray">Gray</option>
         <option value="Dark Gray">Dark Gray</option>
+        <option value="White">White</option>
       </select>
       <p><strong>Size</strong></p>
       <select
@@ -34,9 +34,11 @@
         <option value="option2">XL</option>
         <option value="option3">XXL</option>
       </select>
+      <p><strong>Quantity</strong></p>
+      <input class="rounded-lg w-40" type="number" name="" id="" value="1">
 
       <!-- Add two buttons: add to card and buy now -->
-      <div class="flex flex-col gap-3 pr-4">
+      <div class="flex flex-col gap-3 pr-4 mt-1">
         <router-link to="/cart" class="hover:underline">
           <button
             class=" w-full border border-primary bg-secondary text-secondary-foreground py-2 rounded-lg hover:bg-primary hover:text-primary-foreground">Add
@@ -148,5 +150,6 @@ watch(selectedColor, async (newColor: string) => { // Specify the type of newCol
 
   selectedColorImage.value = images.value[newColor];
   isLoading.value = false;
+
 });
 </script>
