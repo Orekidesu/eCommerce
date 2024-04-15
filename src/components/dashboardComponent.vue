@@ -118,12 +118,11 @@ const {
   productPrice,
   productId,
   fetchProductData,
-  fetchImage
 } = useProductController();
 
 onMounted(async () => {
   await fetchProductData();
-  await fetchImage(selectedColor.value);
   console.log(productId);
+
 });
 </script>

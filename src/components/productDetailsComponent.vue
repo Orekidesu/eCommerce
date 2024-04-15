@@ -63,7 +63,6 @@
                 with
                 all-day comfort. It's perfect for the modern guy who wants to look sharp without sacrificing ease.</p>
             </div>
-
             <!-- Sub description -->
             <div>
               <ul class="list-disc text-sm list-inside">
