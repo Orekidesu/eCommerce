@@ -260,6 +260,8 @@
               <div class="flex flex-col justify-start">
                 <div class="text-base">CleanCollar Men's Shirt</div>
                 <div class="text-xs">Navy / XS </div>
+                <div class="text-xs"><strong>x1 </strong></div>
+
               </div>
             </div>
             <div>₱1,500 PHP</div>
@@ -310,8 +312,8 @@ import {
 import { HelpCircle } from 'lucide-vue-next';
 import { Car } from 'lucide-vue-next';
 import { HandCoins } from 'lucide-vue-next';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
 import { ref } from 'vue';
 let selectedValue = ref('comfortable');
 

@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import NavigationView from '@/views/navigationView.vue';
+import NavigationView from './views/navigation/navigationView.vue';
 import FooterView from '@/views/footerView.vue';
 import SearchCartView from './views/searchCartView.vue';
 </script>
