@@ -2,7 +2,10 @@
   <nav class="bg-background border-border w-screen border-b-2">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-10 py-4">
       <router-link to="/dashboard" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="../../assets/logo.png" class="h-8" alt="Brand Logo" />
+        <img src="../../assets/logo3.svg" class="h-14" alt="Brand Logo" />
+        <h1>
+          <i>BADO CLOTHING</i>
+        </h1>
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
       </router-link>
       <button data-collapse-toggle="navbar-default" type="button"
