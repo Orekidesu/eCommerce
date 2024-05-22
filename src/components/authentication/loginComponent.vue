@@ -50,11 +50,11 @@
       <div class="">
         <Carousel class="relative">
           <CarouselContent>
-            <CarouselItem v-for="(_, index) in 5" :key="index">
+            <CarouselItem v-for="(image, index) in images" :key="index">
               <div class="p-1">
                 <Card class="h-full">
                   <CardContent class="flex aspect-square items-center justify-center ">
-                    <img src="../../assets/cleanCollarDarkGray.png" alt="">
+                    <img :src="image" alt="">
                   </CardContent>
                 </Card>
               </div>
@@ -78,5 +78,13 @@ import { useLoginController } from '@/controllers/loginController';
 
 
 const { email, password, submitForm, loginWithGoogle } = useLoginController();
+
+
+const images = [
+  require('../../assets/cleanCollarDarkGray.png'),
+  require('../../assets/cleanCollarGray.png'),
+  require('../../assets/cleanCollarNavy.png'),
+  require('../../assets/cleanCollarWhite.png'),
+];
 
 </script>
