@@ -40,7 +40,8 @@
       <div class="flex flex-col gap-4 md:items-end items-center">
         <p><strong>Subtotal :</strong> ₱1,500 PHP</p>
         <p class="text-xs"> Taxes and shipping calculated at checkout</p>
-        <Button class="w-60 ">Checkout</Button>
+
+        <router-link to="/buyProduct"><Button class="w-60 ">Checkout</Button></router-link>
       </div>
 
     </div>
