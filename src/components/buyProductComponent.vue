@@ -240,8 +240,10 @@
             <div>
               <div class="flex justify-start w-full">
                 <button
-                  class=" w-full border border-primary bg-secondary text-secondary-foreground py-2 rounded-sm hover:bg-primary hover:text-primary-foreground">
-                  Complete Order</button>
+                  class="w-full border border-primary bg-secondary text-secondary-foreground py-2 rounded-sm hover:bg-primary hover:text-primary-foreground"
+                  @click="showAlert">
+                  Complete Order
+                </button>
               </div>
             </div>
             <!-- END CHECKOUT -->
@@ -286,8 +288,6 @@
 </template>
 
 <script setup lang="ts">
-import { Input } from './ui/input';
-import { Checkbox } from './ui/checkbox';
 import {
   FormControl,
   FormField,
@@ -295,6 +295,8 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import {
   Select,
   SelectContent,
@@ -309,16 +311,23 @@ import {
   TooltipProvider,
   TooltipTrigger
 } from '@/components/ui/tooltip';
-import { HelpCircle } from 'lucide-vue-next';
-import { Car } from 'lucide-vue-next';
-import { HandCoins } from 'lucide-vue-next';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
+import { Car, HandCoins, HelpCircle } from 'lucide-vue-next';
 import { ref } from 'vue';
+import { Checkbox } from './ui/checkbox';
+import { Input } from './ui/input';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 let selectedValue = ref('comfortable');
 
 const selectValue = (value: string) => {
   selectedValue.value = value;
 };
 
+
+
+const showAlert = () => {
+  alert('YOUR ORDER HAS BEEN PLACED!');
+  router.push('/products');
+};
 </script>

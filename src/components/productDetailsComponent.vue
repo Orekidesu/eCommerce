@@ -34,11 +34,13 @@
         <p><strong>Quantity</strong></p>
         <input class="rounded-lg w-40" type="number" name="" id="" value="1">
         <div class="w-full">
-          <div class="flex justify-start w-4/5">
-            <button
-              class=" w-full border border-primary bg-secondary text-secondary-foreground py-2 rounded-sm hover:bg-primary hover:text-primary-foreground">
-              Add
-              to Cart</button>
+          <div class=" w-full flex justify-start">
+            <router-link to="/cart" class="w-full">
+              <button
+                class="w-full border border-primary bg-secondary text-secondary-foreground py-2 rounded-sm hover:bg-primary hover:text-primary-foreground">
+                Add
+                to Cart</button>
+            </router-link>
           </div>
           <div class="flex flex-row pt-2 w-4/5 justify-between">
             <div class="flex flex-col justify-center items-center">
