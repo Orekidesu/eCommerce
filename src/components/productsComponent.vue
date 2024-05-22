@@ -9,8 +9,8 @@
     <!-- make a list of images -->
     <router-link to="/productDetails" class="hover:underline">
       <div class="overflow-hidden">
-        <img class=" w-full h-full transform transition duration-500 hover:scale-110"
-          src="../assets/cleanCollarNavy.png" alt="cleanCollarNavy">
+        <img class=" w-full h-44 md:h-96 transform transition duration-500 hover:scale-110  "
+          src="../assets/cleanCollarGray.png" alt="cleanCollar">
       </div>
       <div class="text-start">
         <p class="">Product 1</p>
@@ -25,8 +25,8 @@
     </router-link>
     <router-link to="/productDetails" class="hover:underline">
       <div class=" overflow-hidden">
-        <img class="w-full h-full transform transition duration-500 hover:scale-110" src="../assets/cleanCollarNavy.png"
-          alt="cleanCollarNavy">
+        <img class="w-full h-44 md:h-96 transform transition duration-500 hover:scale-110"
+          src="../assets/thermalJacket.png" alt="thermal jacket">
       </div>
       <div class="text-start">
         <p>Product 2</p>
@@ -41,8 +41,8 @@
     </router-link>
     <router-link to="/productDetails" class="hover:underline">
       <div class=" overflow-hidden">
-        <img class=" w-full h-full transform transition duration-500 hover:scale-110"
-          src="../assets/cleanCollarNavy.png" alt="cleanCollarNavy">
+        <img class=" w-full h-44 md:h-96 transform transition duration-500 hover:scale-110" src="../assets/luxPlaid.png"
+          alt="luxpLaid">
       </div>
       <div class="text-start">
         <p>Product 3</p>
@@ -58,8 +58,8 @@
     </router-link>
     <router-link to="/productDetails" class="hover:underline">
       <div class=" overflow-hidden">
-        <img class=" w-full h-full transform transition duration-500 hover:scale-110"
-          src="../assets/cleanCollarNavy.png" alt="Product 4">
+        <img class=" w-full h-44 md:h-96 transform transition duration-500 hover:scale-110"
+          src="../assets/fluffJacket.png" alt="Product 4">
       </div>
       <div class="text-start">
         <p>Product 4</p>
