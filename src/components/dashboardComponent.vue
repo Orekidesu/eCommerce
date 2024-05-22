@@ -67,7 +67,8 @@
             src="../assets/cleanCollarNavy.png" alt="cleanCollarNavy">
         </div>
         <div class="text-start">
-          <p class="">Product 1</p>
+          <p class="">
+            CleanCollar Men's Shirt</p>
           <p>₱2,526.99 PHP</p>
         </div>
       </router-link>
@@ -84,7 +85,7 @@
       <router-link to="/productDetails" class="hover:underline">
         <div class=" overflow-hidden">
           <img class="transform transition duration-500 hover:scale-110 h-44 md:h-96" src="../assets/thermalJacket.png"
-            alt="cleanCollarNavy">
+            alt="thermal Jacket">
         </div>
         <div class="text-start">
           <p>Thermal Jacket</p>
@@ -97,7 +98,7 @@
             alt="Product 4">
         </div>
         <div class="text-start">
-          <p>Flull Jacket</p>
+          <p>Fluf Jacket</p>
           <p>₱4,896.99 PHP</p>
         </div>
       </router-link>

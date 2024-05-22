@@ -13,9 +13,10 @@
           src="../assets/cleanCollarGray.png" alt="cleanCollar">
       </div>
       <div class="text-start">
-        <p class="">Product 1</p>
+        <p class="">
+          CleanCollar Men's Shirt</p>
         <p>₱2,526.99 PHP</p>
-        <p class="flex flex-row">
+        <p class="flex flex-ro`w">
           <Star :size="20" color="#c8ff00" :stroke-width="1.5" fill="#c8ff00" />
           <Star :size="20" color="#c8ff00" :stroke-width="1.5" fill="#c8ff00" />
           <Star :size="20" color="#c8ff00" :stroke-width="1.5" fill="#c8ff00" />
@@ -29,8 +30,8 @@
           src="../assets/thermalJacket.png" alt="thermal jacket">
       </div>
       <div class="text-start">
-        <p>Product 2</p>
-        <p>₱2,526.99</p>
+        <p>Thermal Jacket</p>
+        <p>₱6,475.99 PHP</p>
         <p class="flex flex-row">
           <Star :size="20" color="#c8ff00" :stroke-width="1.5" fill="#c8ff00" />
           <Star :size="20" color="#c8ff00" :stroke-width="1.5" fill="#c8ff00" />
@@ -45,8 +46,8 @@
           alt="luxpLaid">
       </div>
       <div class="text-start">
-        <p>Product 3</p>
-        <p>₱2,526.99 PHP</p>
+        <p>LuxPLaid Shirt for men</p>
+        <p>₱1,999.99 PHP</p>``
         <p class="flex flex-row">
           <Star :size="20" color="#c8ff00" :stroke-width="1.5" fill="#c8ff00" />
           <Star :size="20" color="#c8ff00" :stroke-width="1.5" fill="#c8ff00" />
@@ -62,8 +63,8 @@
           src="../assets/fluffJacket.png" alt="Product 4">
       </div>
       <div class="text-start">
-        <p>Product 4</p>
-        <p>₱2,526.99 PHP</p>
+        <p>Fluf Jacket</p>
+        <p>₱4,896.99 PHP</p>
         <p class="flex flex-row">
           <Star :size="20" color="#c8ff00" :stroke-width="1.5" fill="#c8ff00" />
           <Star :size="20" color="#c8ff00" :stroke-width="1.5" fill="#c8ff00" />
