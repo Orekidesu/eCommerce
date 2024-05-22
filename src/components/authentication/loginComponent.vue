@@ -75,16 +75,22 @@ import { Label } from '@/components/ui/label';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLoginController } from '@/controllers/loginController';
+import cleanCollarDarkGray from '../../assets/cleanCollarDarkGray.png';
+import cleanCollarGray from '../../assets/cleanCollarGray.png';
+import cleanCollarNavy from '../../assets/cleanCollarNavy.png';
+import cleanCollarWhite from '../../assets/cleanCollarWhite.png';
+
+const images = [
+  cleanCollarDarkGray,
+  cleanCollarGray,
+  cleanCollarNavy,
+  cleanCollarWhite,
+];
 
 
 const { email, password, submitForm, loginWithGoogle } = useLoginController();
 
 
-const images = [
-  require('../../assets/cleanCollarDarkGray.png'),
-  require('../../assets/cleanCollarGray.png'),
-  require('../../assets/cleanCollarNavy.png'),
-  require('../../assets/cleanCollarWhite.png'),
-];
+
 
 </script>
