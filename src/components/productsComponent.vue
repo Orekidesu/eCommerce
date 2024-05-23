@@ -47,7 +47,7 @@
       </div>
       <div class="text-start">
         <p>LuxPLaid Shirt for men</p>
-        <p>₱1,999.99 PHP</p>``
+        <p>₱1,999.99 PHP</p>
         <p class="flex flex-row">
           <Star :size="20" color="#c8ff00" :stroke-width="1.5" fill="#c8ff00" />
           <Star :size="20" color="#c8ff00" :stroke-width="1.5" fill="#c8ff00" />
