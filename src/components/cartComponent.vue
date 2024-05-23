@@ -10,7 +10,7 @@
     <div class="flex md:flex-row flex-col md:justify-between px-6 md:px-32 pt-10 gap-4">
       <div class="w-full flex flex-row gap-4">
         <div class="h-28 w-28">
-          <img src="../assets/cleanCollarDarkGray.png" alt="">
+          <img src="../assets/cleanCollarNavy.png" alt="">
         </div>
         <div class="flex flex-col gap-2">
           <div>
