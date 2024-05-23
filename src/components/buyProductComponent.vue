@@ -258,7 +258,7 @@
         <div class="flex flex-col">
           <div class="flex flex-row justify-between">
             <div class="flex flex-row justify-start gap-2">
-              <img src="../assets/cleanCollarDarkGray.png" class="h-20 w-20" alt="">
+              <img src="../assets/cleanCollarNavy.png" class="h-20 w-20" alt="">
               <div class="flex flex-col justify-start">
                 <div class="text-base">CleanCollar Men's Shirt</div>
                 <div class="text-xs">Navy / XS </div>
